@@ -14,8 +14,8 @@ public class Ship{
 
 
 	public void setLocationCells(ArrayList<Integer> locationCells){
-       this.loc =  locationCells;
-    }
+      		 this.loc =  locationCells;
+    	}
 
 	//Check if the ship was hit or not
 	public String isHit(int num){
