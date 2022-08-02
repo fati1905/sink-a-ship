@@ -18,7 +18,7 @@ public class Ship {
 
     //Check if the ship was hit or not
     public String isHit( int num ) {
-        //We recieve the number hit in num
+        //We receive the number hit in num
         String result = "miss"; //The result of the hit is st on miss on default
         if(loc.contains(num)) { //if The number inserted is in the arrayList
             result = "hit";//Then The ship was hit
