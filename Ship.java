@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Ship{
 
 	ArrayList<Integer> loc;
@@ -5,8 +7,8 @@ public class Ship{
 	//Instantiate the ship location
 	Ship(){
 		
-		int rand = (int)Math.floor(Math.random*5+4);
-		loc = new ArrayList(); 
+		int rand = (int)Math.floor(Math.random()*5+4);
+		loc = new ArrayList();
 		loc.add(rand);
 		loc.add(rand+1);
 		loc.add(rand+2);
@@ -28,7 +30,7 @@ public class Ship{
 			
 			result = "hit";//Then The ship was hit
 
-			loc.remove(loc.indexOf(num));//We remove the hit block from the arraylist
+			loc.remove((Integer) num);//We remove the hit block from the arraylist
 
 			if(loc.isEmpty()){ //Check if the ArrayList is not empty
 				result = "kill"; //If it is we should end the game
