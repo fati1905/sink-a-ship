@@ -1,6 +1,6 @@
 import java.io.*;
-public class GameHelper {
-    public String getUserInput(String prompt) {
+public class helper {
+    public String getUserInput() {
         String inputLine=null;
         System.out.print("prompt" + " ");
         try {
