@@ -8,7 +8,7 @@ public class Ship {
     //Instantiate the ship location
     public Ship() {
 
-        int rand = (int) Math.floor(Math.random() * 5 + 4);
+        int rand = (int) Math.floor(Math.random()*5);
         Collections.addAll(loc, rand, rand+1, rand+2);
     }
 
@@ -30,9 +30,9 @@ public class Ship {
         return result;
     }
 
-    public static void main(String [] args){
-        Ship s = new Ship();
-        s.getLoc();
-        System.out.println(s.isHit(9));
-    }
+    //public static void main(String [] args){
+        //Ship s = new Ship();
+        //s.getLoc();
+        //System.out.println(s.isHit(9));
+    //}
 }
