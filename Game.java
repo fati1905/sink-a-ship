@@ -1,13 +1,12 @@
 public class Game {
     public static void main(String[] args){
         int numOfGuess =0;
-        Helper helper = new Helper();
         Ship s = new Ship();
         boolean isAlive = true;
         s.getLoc();
         String result = "miss";
         while(isAlive){
-            String guess = helper.getUserInput();
+            String guess = UserInput.readLine();
             try{
                 result = s.isHit(Integer.parseInt(guess));
                 System.out.println(result);
