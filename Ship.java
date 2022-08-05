@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * -------- How To Use ---------
+ * This class randomly positions a ship, and provides its position (blocks from 0 to 6) in an ArrayList "loc". 
+ * The class Ship also contains a method that ckecks if the user's input entails the ship being either hit (result = "hit"), missed (result = "hit") or killed in case the ship was spot (result = "kill")
+ */ 
+
 public class Ship {
 
     ArrayList<Integer> loc = new ArrayList<>();
@@ -12,27 +18,33 @@ public class Ship {
         Collections.addAll(loc, rand, rand+1, rand+2);
     }
 
-    public void getLoc() {             //test method useful for debugging
+    //Test method useful for debugging. Please remove it to hide the position of the ship
+    public void getLoc() { 
         loc.forEach(System.out::println);
     }
 
     //Check if the ship was hit or not
     public String isHit( int num ) {
-        //We receive the number hit in num
-        String result = "miss"; //The result of the hit is st on miss on default
-        if(loc.contains(num)) { //if The number inserted is in the arrayList
-            result = "hit";//Then The ship was hit
-            loc.remove((Integer) num);//We remove the hit block from the arraylist
-            if(loc.isEmpty()) { //Check if the ArrayList is not empty
-                result = "kill"; //If it is we should end the game
+       
+        //The result of the hit is set on "miss" by default
+        String result = "miss"; 
+
+        //If The number inserted is in the ArrayList
+        if(loc.contains(num)){
+
+            //Then the ship was hit 
+            result = "hit";
+
+            //We remove the hit block from the Arraylist
+            loc.remove((Integer) num);
+
+            //Check if the ArrayList is not empty
+            if(loc.isEmpty()) { 
+
+                //If it is we should end the game
+                result = "kill"; 
             }
         }
         return result;
     }
-
-    //public static void main(String [] args){
-        //Ship s = new Ship();
-        //s.getLoc();
-        //System.out.println(s.isHit(9));
-    //}
 }
