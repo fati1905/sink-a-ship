@@ -9,7 +9,7 @@ import java.util.Collections;
 
 public class Ship {
 
-    ArrayList<Integer> loc = new ArrayList<>();
+    private final ArrayList<Integer> loc = new ArrayList<>();
 
     //Instantiate the ship location
     public Ship() {
@@ -19,7 +19,7 @@ public class Ship {
     }
 
     //Test method useful for debugging. Please remove it to hide the position of the ship
-    public void getLoc() { 
+    public void showPos() { 
         loc.forEach(System.out::println);
     }
 
