@@ -23,6 +23,12 @@ public class Game {
             //Store the input of the user
             String guess = UserInput.readLine();
 
+            //If the user's input is q, Q,QUIT or quit then the game will be stopped
+            if(guess.equals("q") || guess.equals("Q") || guess.equals("quit") || guess.equals("QUIT") ){
+                System.out.println("Game quitted!");
+                break;
+            }
+
             //Convert the user input (String) into integer
             try{
                 result = s.isHit(Integer.parseInt(guess));
