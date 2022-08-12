@@ -13,7 +13,7 @@ public class Ship {
 
     //Instantiate the ship location
     public Ship() {
-
+        //TODO: Multiple ships
         int rand = (int) Math.floor(Math.random()*5);
         Collections.addAll(loc, rand, rand+1, rand+2);
     }

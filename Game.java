@@ -17,7 +17,9 @@ public class Game {
         //s.showPos(); 
         String result = "miss";
 
-
+        //TODO: Add a start button
+        //TODO: Add a quit button
+        System.out.println("The Game starts! Get ready to spot the ship.");
         while(isAlive){
 
             //Store the input of the user
