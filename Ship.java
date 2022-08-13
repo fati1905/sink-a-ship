@@ -25,7 +25,7 @@ public class Ship {
 
     //Check if the ship was hit or not
     public String isHit( int num ) {
-       
+       //TODO: use enums instead of STRING
         //The result of the hit is set on "miss" by default
         String result = "miss"; 
 
