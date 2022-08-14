@@ -3,8 +3,8 @@ import java.util.Collections;
 
 /**
  * -------- How To Use ---------
- * This class randomly positions a ship, and provides its position (blocks from 0 to 6) in an ArrayList "loc". 
- * The class Ship also contains a method that ckecks if the user's input entails the ship being either hit (result = "hit"), missed (result = "hit") or killed in case the ship was spot (result = "kill")
+ * This class randomly positions a ship, and provides its position (blocks from 0 to 10) in an ArrayList "loc".
+ * The class Ship also contains a method that checks if the user's input entails the ship being either hit (result = "hit"), missed (result = "hit") or killed in case the ship was spot (result = "kill")
  */ 
 
 public class Ship {

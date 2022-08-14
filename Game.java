@@ -3,7 +3,7 @@
  * This class is the main class that should be executed to launch the game.
  * This class instantiates an object of type "Ship", then creates a loop while checking if the ship is still alive in each iteration until it is spot.
  * This class also announces in the end of the game, the number of the guesses taken by the player to completely spot the ship.
- * Please note that the grid's blocks variate from 0 to 6. In case of entering numbers less or bigger than this interval the answer will always "miss".
+ * Please note that the grid's blocks variate from 0 to 10. In case of entering numbers less or bigger than this interval the answer will always "miss".
  */
  
 public class Game {
@@ -27,7 +27,7 @@ public class Game {
 
             //If the user's input is q, Q,QUIT or quit then the game will be stopped
             if(guess.equals("q") || guess.equals("Q") || guess.equals("quit") || guess.equals("QUIT") ){
-                System.out.println("Game quitted!");
+                System.out.println("Game quit!");
                 break;
             }
 
