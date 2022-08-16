@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 /**
@@ -7,29 +8,31 @@ import java.util.Collections;
  */ 
 
 public class Ship {
-    protected ArrayList<Coordinates> loc ;
-    protected ArrayList<Coordinates> ships = new ArrayList<Coordinates>();
+    protected ArrayList<Point> loc ;
+    protected ArrayList<Point> ships = new ArrayList<Point>();
     protected int orientation;//Horizontal: 0, Vertical: 1
 
     //Instantiate the ship location
     public Ship() {
         //TODO: Multiple ships
-        loc = new ArrayList<Coordinates>();
+        loc = new ArrayList<Point>();
         orientation = (int) Math.floor(Math.random()*2);
     }
 
     public void setShip(int width){
         //TODO: Change the grid to a variable
-        Coordinates cord = new Coordinates(0,0);
+        Point cord = new Point(0,0);
 
-        if(this.orientation%2==0){
-            cord.y = (int) Math.floor(Math.random()*(11));
-            cord.x = (int) Math.floor(Math.random()*(12-width));
-        }else {
-            cord.y = (int) Math.floor(Math.random()*(11-width));
-            cord.x = (int) Math.floor(Math.random()*(11));
+        while(ships.contains(cord)){
+
+            if(this.orientation%2==0){
+                cord.y = (int) Math.floor(Math.random()*(11));
+                cord.x = (int) Math.floor(Math.random()*(11-width));
+            }else {
+                cord.y = (int) Math.floor(Math.random()*(11-width));
+                cord.x = (int) Math.floor(Math.random()*(11));
+            }
         }
-
         //Add to the ArrayList (ship) the position of the ship
         for(int i =0; i<width; i++){
             loc.add(cord);
@@ -46,11 +49,11 @@ public class Ship {
 
     //Test method useful for debugging. Please remove it to hide the position of the ship
     public void showPos() { 
-        loc.forEach((cord) -> cord.displayCord(cord));
+        loc.forEach((cord) -> System.out.println(cord.toString()));
     }
 
     //Check if the ship was hit or not
-    public String isHit(Coordinates cord){
+    public String isHit(Point cord){
         //TODO: Use ENUMS instead of strings
         String result = "miss";
 
