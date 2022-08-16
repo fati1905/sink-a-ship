@@ -8,31 +8,33 @@ import java.util.Collections;
 
 public class Ship {
     protected ArrayList<Coordinates> loc ;
-    protected int direction;//Horizontal: 0, Vertical: 1
+    protected ArrayList<Coordinates> ships = new ArrayList<Coordinates>();
+    protected int orientation;//Horizontal: 0, Vertical: 1
 
     //Instantiate the ship location
     public Ship() {
         //TODO: Multiple ships
         loc = new ArrayList<Coordinates>();
-        direction = (int) Math.floor(Math.random()*2);
+        orientation = (int) Math.floor(Math.random()*2);
     }
 
     public void setShip(int width){
+        //TODO: Change the grid to a variable
         Coordinates cord = new Coordinates(0,0);
 
-        if(this.direction%2==0){
-            cord.y = (int) Math.floor(Math.random()*(12));
+        if(this.orientation%2==0){
+            cord.y = (int) Math.floor(Math.random()*(11));
             cord.x = (int) Math.floor(Math.random()*(12-width));
         }else {
-            cord.y = (int) Math.floor(Math.random()*(12-width));
-            cord.x = (int) Math.floor(Math.random()*(12));
+            cord.y = (int) Math.floor(Math.random()*(11-width));
+            cord.x = (int) Math.floor(Math.random()*(11));
         }
 
         //Add to the ArrayList (ship) the position of the ship
         for(int i =0; i<width; i++){
             loc.add(cord);
             //If the ship is set on horizontal then y remains the same and only x gets incremented in every iteration
-            if (direction % 2 == 0) {
+            if (orientation % 2 == 0) {
                 cord.x++;
             } else{
                 //Otherwise, if the ship is vertical then x remains static and y increments
@@ -40,7 +42,6 @@ public class Ship {
             }
             i++;
         }
-        
     }
 
     //Test method useful for debugging. Please remove it to hide the position of the ship
