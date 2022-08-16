@@ -30,7 +30,7 @@ public class Game {
                 System.out.println("Game quit!");
                 break;
             }
-
+            //TODO: Change the code according to ship class code
             //Convert the user input (String) into integer
             try{
                 result = s.isHit(Integer.parseInt(guess));
