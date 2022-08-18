@@ -17,8 +17,5 @@ public class UserInput {
         return new Point(x,y);
     }
 
-    public static void main(String[] args){
-        UserInput.readLine();
-    }
 }
 
