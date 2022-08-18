@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.Scanner;
 
 /**
@@ -8,9 +9,16 @@ import java.util.Scanner;
 public class UserInput {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static String readLine() {
+    public static Point readLine() {
         System.out.print("prompt: ");
-        return scanner.nextLine();
+        int x = scanner.nextInt();
+        int y = scanner.nextInt();
+        //System.out.println(point);
+        return new Point(x,y);
+    }
+
+    public static void main(String[] args){
+        UserInput.readLine();
     }
 }
 
