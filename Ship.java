@@ -10,27 +10,54 @@ import java.util.Collections;
 public class Ship {
     //TODO: Multiple ships
     protected ArrayList<Point> loc = new ArrayList<Point>();
-    protected ArrayList<Point> ships = new ArrayList<Point>();
 
+    public Ship(int grid,int width, ArrayList<Point> ships){
 
-    public Ship(int grid,int width){
-        int X = (int) (Math.random()*(grid-2)+1);
-        int Y = (int) (Math.random()*(grid-2)+1);
-        Point point1 = new Point(X,Y);
-        loc.add(point1);
-        boolean isHorizontal = (Math.random() < 0.5); //returns true or false randomly
+        while(true){
 
-        Point point2;
-        Point point3;
-        if(isHorizontal){
-            point2 = new Point(X, Y + 1);
-            point3 = new Point(X, Y + 2);
-        }else{
-            point2 = new Point(X + 1, Y);
-            point3 = new Point(X + 2, Y);
+            int X = 0;
+            int Y = 0;
+            boolean isHorizontal = (Math.random() < 0.5); //returns true or false randomly
+
+            if(isHorizontal){
+                X = (int) (Math.random()*(grid+1-width);
+                Y = (int) (Math.random()*(grid+1);
+            }else {
+                Y = (int) (Math.random()*(grid+1-width);
+                X = (int) (Math.random()*(grid+1);
+            }
+            loc.add(new Point(X,Y));
+
+            //Add to the ArrayList (ship) the position of the ship
+            int i = 0;
+            while (i < width) {
+                if(isHorizontal) {
+                    loc.add(new Point(X, Y + i));
+                } else {
+                    loc.add(new Point(X + i, Y));
+                }
+                i++;
+            }
+
+            //Check if the ships don't overlap
+            boolean flag = false;
+            for(int i = 0; i<ships.size(); i++){
+                for(int j = 0; j<width; j++){
+                    if(ships.contains(loc.get(j))){
+                        flag = true;
+                        break;
+                    }
+                }
+                if(flag){
+                    break;
+                }
+            }
+
+            if(!flag){
+                break;
+            }
         }
-        loc.add(point2);
-        loc.add(point3);
+
     }
 
     //Test method useful for debugging. Please remove it to hide the position of the ship
