@@ -10,7 +10,7 @@ import java.util.Collections;
 public class Ship {
     protected ArrayList<Point> loc;
     protected ArrayList<Point> ships = new ArrayList<Point>();
-    protected int orientation;//Horizontal: 0, Vertical: 1
+    protected int orientation;//Horizontal: even, Vertical: odd
 
     //Instantiate the ship location
     public Ship() {
@@ -19,47 +19,30 @@ public class Ship {
         orientation = (int) Math.floor(Math.random()*2);
     }
 
-    public void setShip(int width, int grid){
-        //TODO: Change the grid to a variable
-        Point cord = new Point(0,0);
-        boolean flag = false;
-
-        while(!flag){
-
-            if(this.orientation%2==0){
-                cord.y = (int) Math.floor(Math.random()*(grid));
-                cord.x = (int) Math.floor(Math.random()*(grid-width));
-            }else {
-                cord.y = (int) Math.floor(Math.random()*(grid-width));
-                cord.x = (int) Math.floor(Math.random()*(grid));
-            }
-            //Add to the ArrayList (ship) the position of the ship
-            for(int i =0; i<width; i++){
-                loc.add(cord);
-                //If the ship is set on horizontal then y remains the same and only x gets incremented in every iteration
-                if (orientation % 2 == 0) {
-                    cord.x++;
-                } else{
-                    //Otherwise, if the ship is vertical then x remains static and y increments
-                    cord.y++;
-                }
-            }
-
-            //Check if the ships don't overlap
-            for(int i = 0; i<width; i++){
-                if(ships.contains(loc.get(i))){
-                    flag = true;
-                    break;
-                }
-            }
-
+    public void setShip(int grid){
+        int X = (int) (Math.random()*(grid-2)+1);
+        int Y = (int) (Math.random()*(grid-2)+1);
+        Point point1 = new Point(X,Y);
+        loc.add(point1);
+        boolean isHorizontal = (Math.random() < 0.5); //returns true or false randomly
+        Point point2;
+        Point point3;
+        if(isHorizontal){
+            point2 = new Point(X, Y + 1);
+            point3 = new Point(X, Y + 2);
+        }else{
+            point2 = new Point(X + 1, Y);
+            point3 = new Point(X + 2, Y);
         }
-
+        loc.add(point2);
+        loc.add(point3);
     }
 
     //Test method useful for debugging. Please remove it to hide the position of the ship
-    public void showPos() { 
-        loc.forEach((cord) -> System.out.println(cord.toString()));
+    public void showPos() {
+        for (Point p:loc) {
+            System.out.println(p);
+        }
     }
 
     //Check if the ship was hit or not

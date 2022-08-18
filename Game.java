@@ -14,11 +14,11 @@ public class Game {
 
         int numOfGuess =0;
         Ship s = new Ship();
+        s.setShip(10);
         boolean isAlive = true;
         //If you are on developer mode and want to see the position of the ship, remove the next line from a comment
-        //s.showPos(); 
+        s.showPos();
         String result = "miss";
-
         //TODO: Add a start button
         //TODO: Add a quit button
         System.out.println("The Game starts! Get ready to spot the ship.");
