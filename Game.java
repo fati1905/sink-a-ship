@@ -1,3 +1,5 @@
+import java.awt.*;
+
 /**
  * ------------ How To Use --------------
  * This class is the main class that should be executed to launch the game.
@@ -23,17 +25,11 @@ public class Game {
         while(isAlive){
 
             //Store the input of the user
-            String guess = UserInput.readLine();
-
-            //If the user's input is q, Q,QUIT or quit then the game will be stopped
-            if(guess.equals("q") || guess.equals("Q") || guess.equals("quit") || guess.equals("QUIT") ){
-                System.out.println("Game quit!");
-                break;
-            }
+            Point guess = UserInput.readLine();
             //TODO: Change the code according to ship class code
             //Convert the user input (String) into integer
             try{
-                result = s.isHit(Integer.parseInt(guess));
+                result = s.isHit(guess);
                 //Prints the result of the hit (miss, hit, kill)
                 System.out.println(result);
                 numOfGuess++;

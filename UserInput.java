@@ -13,9 +13,13 @@ public class UserInput {
         System.out.print("prompt: ");
         int x = scanner.nextInt();
         int y = scanner.nextInt();
-        //System.out.println(point);
+        //System.out.println(x);
+        //System.out.println(y);
         return new Point(x,y);
     }
 
+    public static void main(String[] args){
+        UserInput.readLine();
+    }
 }
 
