@@ -13,7 +13,7 @@ public class Game {
         int numOfGuess =0;
         Ship s = new Ship();
         boolean isAlive = true;
-        //If you are on developper mode and want to see the position of the ship, remove the next line from a comment
+        //If you are on developer mode and want to see the position of the ship, remove the next line from a comment
         //s.showPos(); 
         String result = "miss";
 

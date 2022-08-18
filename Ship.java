@@ -46,7 +46,6 @@ public class Ship {
             }
 
             //Check if the ships don't overlap
-
             for(int i = 0; i<width; i++){
                 if(ships.contains(loc.get(i))){
                     flag = true;
