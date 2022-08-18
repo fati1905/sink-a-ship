@@ -20,16 +20,16 @@ public class Ship {
             boolean isHorizontal = (Math.random() < 0.5); //returns true or false randomly
 
             if(isHorizontal){
-                X = (int) (Math.random()*(grid+1-width);
-                Y = (int) (Math.random()*(grid+1);
+                X = (int) (Math.random()*(grid+1-width));
+                Y = (int) (Math.random()*(grid+1));
             }else {
-                Y = (int) (Math.random()*(grid+1-width);
-                X = (int) (Math.random()*(grid+1);
+                Y = (int) (Math.random()*(grid+1-width));
+                X = (int) (Math.random()*(grid+1));
             }
             loc.add(new Point(X,Y));
 
             //Add to the ArrayList (ship) the position of the ship
-            int i = 0;
+            int i = 1;
             while (i < width) {
                 if(isHorizontal) {
                     loc.add(new Point(X, Y + i));
@@ -41,7 +41,7 @@ public class Ship {
 
             //Check if the ships don't overlap
             boolean flag = false;
-            for(int i = 0; i<ships.size(); i++){
+            for(Point p: ships){
                 for(int j = 0; j<width; j++){
                     if(ships.contains(loc.get(j))){
                         flag = true;

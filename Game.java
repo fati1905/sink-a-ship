@@ -1,5 +1,3 @@
-import java.awt.*;
-
 /**
  * ------------ How To Use --------------
  * This class is the main class that should be executed to launch the game.
@@ -7,13 +5,16 @@ import java.awt.*;
  * This class also announces in the end of the game, the number of the guesses taken by the player to completely spot the ship.
  * Please note that the grid's blocks variate from 0 to 10. In case of entering numbers less or bigger than this interval the answer will always "miss".
  */
- 
+import java.awt.*;
+import java.util.ArrayList;
+
 public class Game {
 
     public static void main(String[] args){
 
         int numOfGuess =0;
-        Ship s = new Ship(10,3);
+        ArrayList<Point> ships = new ArrayList<Point>();
+        Ship s = new Ship(10,3, ships);
         boolean isAlive = true;
         //If you are on developer mode and want to see the position of the ship, remove the next line from a comment
         s.showPos();
