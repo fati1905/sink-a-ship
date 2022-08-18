@@ -13,8 +13,7 @@ public class Game {
     public static void main(String[] args){
 
         int numOfGuess =0;
-        Ship s = new Ship();
-        s.setShip(10);
+        Ship s = new Ship(10,3);
         boolean isAlive = true;
         //If you are on developer mode and want to see the position of the ship, remove the next line from a comment
         s.showPos();
