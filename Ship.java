@@ -8,23 +8,18 @@ import java.util.Collections;
  */ 
 
 public class Ship {
-    protected ArrayList<Point> loc;
+    //TODO: Multiple ships
+    protected ArrayList<Point> loc = new ArrayList<Point>();
     protected ArrayList<Point> ships = new ArrayList<Point>();
-    protected int orientation;//Horizontal: even, Vertical: odd
 
-    //Instantiate the ship location
-    public Ship() {
-        //TODO: Multiple ships
-        loc = new ArrayList<Point>();
-        orientation = (int) Math.floor(Math.random()*2);
-    }
 
-    public void setShip(int grid){
+    public Ship(int grid,int width){
         int X = (int) (Math.random()*(grid-2)+1);
         int Y = (int) (Math.random()*(grid-2)+1);
         Point point1 = new Point(X,Y);
         loc.add(point1);
         boolean isHorizontal = (Math.random() < 0.5); //returns true or false randomly
+
         Point point2;
         Point point3;
         if(isHorizontal){
