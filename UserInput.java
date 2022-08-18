@@ -5,7 +5,7 @@ import java.util.Scanner;
  * ----- How To Use --------
  * This class interacts with the user. It demands an integer input from 0 to 6, from the user. This indicates the block to hit on the grid.
  */
-
+//TODO: Use maven/gradle
 public class UserInput {
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -18,8 +18,5 @@ public class UserInput {
         return new Point(x,y);
     }
 
-    public static void main(String[] args){
-        UserInput.readLine();
-    }
 }
 
