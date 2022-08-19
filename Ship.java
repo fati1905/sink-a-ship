@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
+
 /**
  * -------- How To Use ---------
  * This class randomly positions a ship, and provides its position (looks from 0 to 10) in an ArrayList "shipPoints".
@@ -9,23 +11,21 @@ import java.util.Collections;
 
 public class Ship {
     //TODO: Multiple ships
-    //TODO: Add elements to ships list
     protected static ArrayList<Point> shipPoints = new ArrayList<Point>();
-
     public Ship(int grid,int width, ArrayList<Point> ships){
+        int X = 0;
+        int Y = 0;
+        boolean isHorizontal = (Math.random() < 0.5); //returns true or false randomly
+        Random rand = new Random();
 
         while(true){
 
-            int X = 0;
-            int Y = 0;
-            boolean isHorizontal = (Math.random() < 0.5); //returns true or false randomly
-
             if(isHorizontal){
-                X = (int) (Math.random()*(grid+1-width));
-                Y = (int) (Math.random()*(grid+1));
+                X = rand.nextInt(grid-width+1)+1;//(int)Math.floor(Math.random()*(max-min+1)+min) --> (int)
+                Y = rand.nextInt(grid)+1;
             }else {
-                Y = (int) (Math.random()*(grid+1-width));
-                X = (int) (Math.random()*(grid+1));
+                Y = rand.nextInt(grid-width+1)+1;
+                X = rand.nextInt(grid)+1;
             }
             shipPoints.add(new Point(X,Y));
 
@@ -33,9 +33,9 @@ public class Ship {
             int i = 1;
             while (i < width) {
                 if(isHorizontal) {
-                    shipPoints.add(new Point(X, Y + i));
+                    shipPoints.add(new Point(X+i, Y));
                 } else {
-                    shipPoints.add(new Point(X + i, Y));
+                    shipPoints.add(new Point(X ,Y+ i));
                 }
                 i++;
             }
@@ -55,10 +55,10 @@ public class Ship {
             }
 
             if(!flag){
-                break;
                 for(int k = 0; k<width; k++){
                     ships.add(shipPoints.get(k));
                 }
+                break;
             }
         }
 

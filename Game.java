@@ -12,13 +12,26 @@ public class Game {
 
     public static void main(String[] args){
 
-        int numOfGuess =0;
-        ArrayList<Point> ships = new ArrayList<Point>();
-        Ship s = new Ship(10,3, ships);
+        int numOfGuess = 0;
         boolean isAlive = true;
+        final int grid = 10;
+        ArrayList<Point> ships = new ArrayList<Point>();
+
+        //Ships
+        Ship carrier = new Ship(10,5, ships);
+        //Ship battleship = new Ship(grid,4, ships);
+        //Ship cruiser = new Ship(grid,3, ships);
+        //Ship submarine = new Ship(grid,3, ships);
+       // Ship destroyer = new Ship(grid,2, ships);
+
         //If you are on developer mode and want to see the position of the ship, remove the next line from a comment
-        s.showPos();
-        String result = "miss";
+        carrier.showPos();
+        //battleship.showPos();
+        //cruiser.showPos();
+        //submarine.showPos();
+        //destroyer.showPos();
+
+        /**String result = "miss";
         //TODO: Add a start button
         //TODO: Add a quit button
         System.out.println("The Game starts! Get ready to spot the ship.");
@@ -44,6 +57,6 @@ public class Game {
                 isAlive =false;
                 System.out.println("You took "+ numOfGuess+ " guesses");
             }
-        }
+        }*/
     }
 }
