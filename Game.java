@@ -19,19 +19,23 @@ public class Game {
 
         //Ships
         Ship carrier = new Ship(10,5, ships);
-        //Ship battleship = new Ship(grid,4, ships);
-        //Ship cruiser = new Ship(grid,3, ships);
-        //Ship submarine = new Ship(grid,3, ships);
-       // Ship destroyer = new Ship(grid,2, ships);
+        Ship battleship = new Ship(grid,4, ships);
+        Ship cruiser = new Ship(grid,3, ships);
+        Ship submarine = new Ship(grid,3, ships);
+        Ship destroyer = new Ship(grid,2, ships);
 
         //If you are on developer mode and want to see the position of the ship, remove the next line from a comment
         carrier.showPos();
-        //battleship.showPos();
-        //cruiser.showPos();
-        //submarine.showPos();
-        //destroyer.showPos();
+        System.out.println("Battleship\n");
+        battleship.showPos();
+        System.out.println("Cruiser\n");
+        cruiser.showPos();
+        System.out.println("Submarine\n");
+        submarine.showPos();
+        System.out.println("Destroyer\n");
+        destroyer.showPos();
 
-        /**String result = "miss";
+        String result = "miss";
         //TODO: Add a start button
         //TODO: Add a quit button
         System.out.println("The Game starts! Get ready to spot the ship.");
@@ -39,10 +43,10 @@ public class Game {
 
             //Store the input of the user
             Point guess = UserInput.readLine();
-            //TODO: Change the code according to ship class code
+
             //Convert the user input (String) into integer
             try{
-                result = s.isHit(guess);
+                result = carrier.isHit(guess,ships);
                 //Prints the result of the hit (miss, hit, kill)
                 System.out.println(result);
                 numOfGuess++;
@@ -57,6 +61,6 @@ public class Game {
                 isAlive =false;
                 System.out.println("You took "+ numOfGuess+ " guesses");
             }
-        }*/
+        }
     }
 }

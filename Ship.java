@@ -10,8 +10,7 @@ import java.util.Random;
  */ 
 
 public class Ship {
-    //TODO: Multiple ships
-    protected static ArrayList<Point> shipPoints = new ArrayList<Point>();
+    protected ArrayList<Point> shipPoints = new ArrayList<Point>();
     public Ship(int grid,int width, ArrayList<Point> ships){
         int X = 0;
         int Y = 0;
@@ -50,14 +49,13 @@ public class Ship {
                     }
                 }
                 if(flag){
+                    shipPoints.subList(0, width).clear();
                     break;
                 }
             }
 
             if(!flag){
-                for(int k = 0; k<width; k++){
-                    ships.add(shipPoints.get(k));
-                }
+                ships.addAll(shipPoints);
                 break;
             }
         }
