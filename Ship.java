@@ -3,13 +3,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 /**
  * -------- How To Use ---------
- * This class randomly positions a ship, and provides its position (blocks from 0 to 10) in an ArrayList "loc".
+ * This class randomly positions a ship, and provides its position (looks from 0 to 10) in an ArrayList "shipPoints".
  * The class Ship also contains a method that checks if the user's input entails the ship being either hit (result = "hit"), missed (result = "hit") or killed in case the ship was spot (result = "kill")
  */ 
 
 public class Ship {
     //TODO: Multiple ships
-    protected ArrayList<Point> loc = new ArrayList<Point>();
+    //TODO: Add elements to ships list
+    protected static ArrayList<Point> shipPoints = new ArrayList<Point>();
 
     public Ship(int grid,int width, ArrayList<Point> ships){
 
@@ -26,15 +27,15 @@ public class Ship {
                 Y = (int) (Math.random()*(grid+1-width));
                 X = (int) (Math.random()*(grid+1));
             }
-            loc.add(new Point(X,Y));
+            shipPoints.add(new Point(X,Y));
 
             //Add to the ArrayList (ship) the position of the ship
             int i = 1;
             while (i < width) {
                 if(isHorizontal) {
-                    loc.add(new Point(X, Y + i));
+                    shipPoints.add(new Point(X, Y + i));
                 } else {
-                    loc.add(new Point(X + i, Y));
+                    shipPoints.add(new Point(X + i, Y));
                 }
                 i++;
             }
@@ -43,7 +44,7 @@ public class Ship {
             boolean flag = false;
             for(Point p: ships){
                 for(int j = 0; j<width; j++){
-                    if(ships.contains(loc.get(j))){
+                    if(ships.contains(shipPoints.get(j))){
                         flag = true;
                         break;
                     }
@@ -55,6 +56,9 @@ public class Ship {
 
             if(!flag){
                 break;
+                for(int k = 0; k<width; k++){
+                    ships.add(shipPoints.get(k));
+                }
             }
         }
 
@@ -62,25 +66,25 @@ public class Ship {
 
     //Test method useful for debugging. Please remove it to hide the position of the ship
     public void showPos() {
-        for (Point p:loc) {
+        for (Point p:shipPoints) {
             System.out.println(p);
         }
     }
 
     //Check if the ship was hit or not
-    public String isHit(Point cord){
+    public String isHit(Point cord, ArrayList<Point> ships){
         //TODO: Use ENUMS instead of strings
         String result = "miss";
 
-        if(loc.contains(cord)){
+        if(ships.contains(cord)){
             //The ship was hit
             result = "hit";
 
             //We remove the coordinate afterwards
-            loc.remove(cord);
+            ships.remove(cord);
 
             //Check if the arrayList is not empty
-            if(loc.isEmpty()){
+            if(ships.isEmpty()){
                 //The game is over
                 result= "kill";
             }
