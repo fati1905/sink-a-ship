@@ -7,7 +7,7 @@ import java.util.Random;
  * -------- How To Use ---------
  * This class randomly positions a ship, and provides its position (looks from 0 to 10) in an ArrayList "shipPoints".
  * The class Ship also contains a method that checks if the user's input entails the ship being either hit (result = "hit"), missed (result = "hit") or killed in case the ship was spot (result = "kill")
- */ 
+ */
 
 public class Ship {
     protected ArrayList<Point> shipPoints = new ArrayList<Point>();
@@ -70,7 +70,7 @@ public class Ship {
     }
 
     //Check if the ship was hit or not
-    public String isHit(Point cord, ArrayList<Point> ships){
+    public static String isHit(Point cord, ArrayList<Point> ships){
         //TODO: Use ENUMS instead of strings
         String result = "miss";
 

@@ -7,33 +7,31 @@
  */
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Game {
 
     public static void main(String[] args){
-
+        //TODO: Apply the variable numberOfShips to the method in UserInput
         int numOfGuess = 0;
+        UserInput input = new UserInput();
         boolean isAlive = true;
-        final int grid = 10;
+        int grid = input.getGrid();
+        int numberOfShips = input.getShip(grid) ;
         ArrayList<Point> ships = new ArrayList<Point>();
+        ArrayList<Ship> allShips = new ArrayList<Ship>();
 
-        //Ships
-        Ship carrier = new Ship(10,5, ships);
-        Ship battleship = new Ship(grid,4, ships);
-        Ship cruiser = new Ship(grid,3, ships);
-        Ship submarine = new Ship(grid,3, ships);
-        Ship destroyer = new Ship(grid,2, ships);
+        //Loop to create ships
+        for(int j = 0; j<numberOfShips;j++){
+            Random rand = new Random();
+            int width = rand.nextInt(4)+2;
+            allShips.add(new Ship(grid,width, ships));
+        }
 
-        //If you are on developer mode and want to see the position of the ship, remove the next line from a comment
-        carrier.showPos();
-        System.out.println("Battleship\n");
-        battleship.showPos();
-        System.out.println("Cruiser\n");
-        cruiser.showPos();
-        System.out.println("Submarine\n");
-        submarine.showPos();
-        System.out.println("Destroyer\n");
-        destroyer.showPos();
+        for (int i = 0; i < numberOfShips; i++) {
+            System.out.println("******* NEW ***********");
+            allShips.get(i).showPos();
+        }
 
         String result = "miss";
         //TODO: Add a start button
@@ -46,7 +44,7 @@ public class Game {
 
             //Convert the user input (String) into integer
             try{
-                result = carrier.isHit(guess,ships);
+                result = Ship.isHit(guess,ships);
                 //Prints the result of the hit (miss, hit, kill)
                 System.out.println(result);
                 numOfGuess++;
