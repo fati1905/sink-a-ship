@@ -25,10 +25,10 @@ public class UserInput {
         return grid;
     }
 
-    public int getShip(){
+    public int getShip(int grid){
         System.out.print("Input number of ships: ");
         int numOfShips = Integer.parseInt(scanner.nextLine());
-        //TODO:put a check here depending on grid size
+        if(grid<numOfShips*5 || grid>0) numOfShips = 5;
         System.out.println("All ships successfully set");
         return numOfShips;
     }
