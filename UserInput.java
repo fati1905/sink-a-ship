@@ -20,6 +20,7 @@ public class UserInput {
     public int getGrid(){
         System.out.print("Input Grid size: ");
         int grid = Integer.parseInt(scanner.nextLine());
+        if(grid<0 || grid>20) grid = 5;
         System.out.println("Grid size successfully set to:"+ grid);
         return grid;
     }
