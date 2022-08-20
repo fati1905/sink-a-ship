@@ -17,6 +17,19 @@ public class UserInput {
         //System.out.println(y);
         return new Point(x,y);
     }
+    public int getGrid(){
+        System.out.print("Input Grid size: ");
+        int grid = Integer.parseInt(scanner.nextLine());
+        System.out.println("Grid size successfully set to:"+ grid);
+        return grid;
+    }
+
+    public int getShip(){
+        System.out.print("Input number of ships: ");
+        int numOfShips = Integer.parseInt(scanner.nextLine());
+        System.out.println("All ships successfully set");
+        return numOfShips;
+    }
 
 }
 
