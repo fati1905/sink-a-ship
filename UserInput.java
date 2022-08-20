@@ -28,6 +28,7 @@ public class UserInput {
     public int getShip(){
         System.out.print("Input number of ships: ");
         int numOfShips = Integer.parseInt(scanner.nextLine());
+        //TODO:put a check here depending on grid size
         System.out.println("All ships successfully set");
         return numOfShips;
     }
